@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Objects;
 
 //grade for a certain student
-public class Grade {
+public abstract class Grade {
     private double avg; // all tests
     private Map<String, Integer> examsScore; // <examName, score>
 
@@ -52,4 +52,19 @@ public class Grade {
                 ", examsScore=" + examsScore +
                 '}';
     }
+
+    abstract double calculateAvg();
+
+    private Integer addEntry(String name, Integer score){
+        return examsScore.put(name, score);
+    }
+
+    abstract Integer deleteEntry();
+
+    abstract void modifyEntry();
+
+    abstract Integer getScore(String examName);
+
+    abstract void emptyAll();
+
 }
